@@ -1,0 +1,4 @@
+module Types where
+import qualified Data.ByteString as B
+
+newtype ForwardPath = ForwardPath 

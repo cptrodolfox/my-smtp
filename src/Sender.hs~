@@ -1,0 +1,2 @@
+module Sender where
+import Network.Socket.ByteString
