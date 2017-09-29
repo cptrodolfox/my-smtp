@@ -1,14 +1,17 @@
 module Commands where
 
-import qualified Data.ByteString.Char8        as Char8
+import qualified Data.Attoparsec.ByteString.Char8 as A
+import qualified Data.ByteString.Char8            as Char8
 import           Data.Char
+import           Network.Socket                   hiding (recv, recvFrom, send,
+                                                   sendTo)
+import           Network.Socket.ByteString
 import           Text.ParserCombinators.ReadP
-import qualified Types                        as T
-
+import qualified Types                            as T
 -----------------------------------
 ---Constants-----------------------
 -----------------------------------
-commandList :: [String]
+commandList :: [Char8.ByteString]
 commandList = ["HELO"
               , "MAIL"
               , "RCPT"
@@ -65,6 +68,12 @@ mailParser = do
                          ))
   satisfy (=='>')
   return (mail, dom)
+
+
+--------------------------------------------
+------------Functions-----------------------
+--------------------------------------------
+
 
 --The SMTP helo command as defined by RFC 821
 helo :: String -> Char8.ByteString
@@ -134,6 +143,15 @@ getCommand x =
 
 --This function checks whether the string is a valid
 --SMTP command
-isCommand :: String -> Bool
+isCommand :: Char8.ByteString -> Bool
 isCommand x = let upX = map toUpper x
               in elem upX commandList
+
+
+--Start Connection to socket
+startConn :: HostName -> ServiceName -> IO Socket
+startConn host service = do
+  addrInfos <- getAddrInfo Nothing (Just host) (Just service)
+  let serverAddr = head addrInfos
+  sock <- socket (addrFamily serverAddr) Stream defaultProtocol
+  return sock

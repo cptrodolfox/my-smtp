@@ -1,7 +1,9 @@
+{-# LANGUAGE DeriveDataTypeable #-}
 module Types where
 
 import qualified Data.ByteString.Char8 as Char8
-
+import           Data.Time.Clock
+import           Data.Typeable
 --Type for the ForwardPath as ByteString since transmission
 --would be done by transmitting bytestring
 newtype ForwardPath = ForwardPath Char8.ByteString
@@ -15,6 +17,23 @@ newtype Domain = Domain Char8.ByteString
 --Type to identify the different SMTP commands
 newtype Command = Command Int
   deriving (Eq, Show)
+
+newtype Username = Username Char8.ByteString
+  deriving (Eq, Show, Typeable, Ord)
+
+newtype MailBody = MailBody Char8.ByteString
+  deriving (Eq, Show, Typeable)
+
+newtype MailBox = MailBox [Email]
+  deriving (Show, Typeable)
+
+-- ADT to represent and email
+data Email = Email { from :: !Username
+                   , body :: !MailBody
+                   , time :: !UTCTime }
+             deriving (Show, Typeable)
+
+
 
 --Unwraps ForwardPath
 unForwardPath :: ForwardPath -> Char8.ByteString
