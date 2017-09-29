@@ -76,49 +76,49 @@ mailParser = do
 
 
 --The SMTP helo command as defined by RFC 821
-helo :: Char8.ByteString -> Char8.ByteString
-helo x = Char8.append (Char8.pack "HELO ") x
+helo :: String -> Char8.ByteString
+helo x = Char8.append (Char8.pack "HELO ") (Char8.pack x)
 
 --The SMTP mail command as defined by RFC 821
-mail :: Char8.ByteString -> Char8.ByteString
-mail x = Char8.append (Char8.pack "MAIL FROM:") x
+mail :: String -> Char8.ByteString
+mail x = Char8.append (Char8.pack "MAIL FROM:") (Char8.pack x)
 
 --The SMTP rcpt command as defined by FRC 821
-recipient :: Char8.ByteString -> Char8.ByteString
-recipient x = Char8.append (Char8.pack "RCPT TO:") x
+recipient :: String -> Char8.ByteString
+recipient x = Char8.append (Char8.pack "RCPT TO:") (Char8.pack x)
 
 --The SMTP data command as defined by RFC 821
 --the data ends with <CRFL>.<CRFL>
-dataComm :: Char8.ByteString -> Char8.ByteString
-dataComm x = Char8.append (Char8.pack "DATA ") x
+dataComm :: String -> Char8.ByteString
+dataComm x = Char8.append (Char8.pack "DATA ") (Char8.pack x)
 
 --The SMTP reset command as defined by RFC 821
-reset :: Char8.ByteString -> Char8.ByteString
+reset :: String -> Char8.ByteString
 reset _ = Char8.pack "RSET "
 
 --The SMTP send command as defined by RFC 821
-send :: Char8.ByteString -> Char8.ByteString
-send x = Char8.append (Char8.pack "SEND FROM:") x
+send :: String -> Char8.ByteString
+send x = Char8.append (Char8.pack "SEND FROM:") (Char8.pack x)
 
 --The SMTP send or mail command defined by RFC 821
-sendOrMail :: Char8.ByteString -> Char8.ByteString
-sendOrMail x = Char8.append (Char8.pack "SOML FROM:") x
+sendOrMail :: String -> Char8.ByteString
+sendOrMail x = Char8.append (Char8.pack "SOML FROM:") (Char8.pack x)
 
 --The SMTP send and mail command defined by RFC 821
-sendAndMail :: Char8.ByteString -> Char8.ByteString
-sendAndMail x = Char8.append (Char8.pack "SAML FROM:") x
+sendAndMail :: String -> Char8.ByteString
+sendAndMail x = Char8.append (Char8.pack "SAML FROM:") (Char8.pack x)
 
 --The SMTP verify command defined by RFC 821
-verify :: Char8.ByteString -> Char8.ByteString
-verify x = Char8.append (Char8.pack "VRFY ") x
+verify :: String -> Char8.ByteString
+verify x = Char8.append (Char8.pack "VRFY ") (Char8.pack x)
 
 --The SMTP expand command defined by RFC 821
-expand :: Char8.ByteString -> Char8.ByteString
-expand x = Char8.append (Char8.pack "EXPN ") x
+expand :: String -> Char8.ByteString
+expand x = Char8.append (Char8.pack "EXPN ") (Char8.pack x)
 
 --The SMTP help command defined by RFC 821
-help :: Char8.ByteString -> Char8.ByteString
-help x = Char8.append (Char8.pack "HELP ") x
+help :: String -> Char8.ByteString
+help x = Char8.append (Char8.pack "HELP ") (Char8.pack x)
 
 --The SMTP no operation defined by RFC 821
 noop :: String -> Char8.ByteString

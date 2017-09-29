@@ -7,6 +7,20 @@
   (major1) == 0 && (major2) <  1 || \
   (major1) == 0 && (major2) == 1 && (minor) <= 0)
 
+/* package acid-state-0.14.2 */
+#define VERSION_acid_state "0.14.2"
+#define MIN_VERSION_acid_state(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  14 || \
+  (major1) == 0 && (major2) == 14 && (minor) <= 2)
+
+/* package attoparsec-0.13.1.0 */
+#define VERSION_attoparsec "0.13.1.0"
+#define MIN_VERSION_attoparsec(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  13 || \
+  (major1) == 0 && (major2) == 13 && (minor) <= 1)
+
 /* package base-4.9.1.0 */
 #define VERSION_base "4.9.1.0"
 #define MIN_VERSION_base(major1,major2,minor) (\
@@ -28,6 +42,13 @@
   (major1) == 0 && (major2) <  5 || \
   (major1) == 0 && (major2) == 5 && (minor) <= 7)
 
+/* package mtl-2.2.1 */
+#define VERSION_mtl "2.2.1"
+#define MIN_VERSION_mtl(major1,major2,minor) (\
+  (major1) <  2 || \
+  (major1) == 2 && (major2) <  2 || \
+  (major1) == 2 && (major2) == 2 && (minor) <= 1)
+
 /* package network-2.6.3.2 */
 #define VERSION_network "2.6.3.2"
 #define MIN_VERSION_network(major1,major2,minor) (\
@@ -35,12 +56,26 @@
   (major1) == 2 && (major2) <  6 || \
   (major1) == 2 && (major2) == 6 && (minor) <= 3)
 
-/* package text-1.2.2.2 */
-#define VERSION_text "1.2.2.2"
+/* package safecopy-0.9.3.2 */
+#define VERSION_safecopy "0.9.3.2"
+#define MIN_VERSION_safecopy(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  9 || \
+  (major1) == 0 && (major2) == 9 && (minor) <= 3)
+
+/* package text-1.2.2.1 */
+#define VERSION_text "1.2.2.1"
 #define MIN_VERSION_text(major1,major2,minor) (\
   (major1) <  1 || \
   (major1) == 1 && (major2) <  2 || \
   (major1) == 1 && (major2) == 2 && (minor) <= 2)
+
+/* package time-1.6.0.1 */
+#define VERSION_time "1.6.0.1"
+#define MIN_VERSION_time(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  6 || \
+  (major1) == 1 && (major2) == 6 && (minor) <= 0)
 
 /* tool cpphs-1.20.8 */
 #define TOOL_VERSION_cpphs "1.20.8"

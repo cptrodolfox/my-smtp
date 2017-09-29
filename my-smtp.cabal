@@ -24,5 +24,10 @@ executable my-smtp
                      , text
                      , bytestring
                      , containers
+                     , attoparsec
+                     , acid-state
+                     , safecopy
+                     , time
+                     , mtl
   hs-source-dirs:      src
   default-language:    Haskell2010
