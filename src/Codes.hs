@@ -32,7 +32,6 @@ codeMessage n fp d a
   | n == 554 = Char8.pack "Transaction failed."
   | otherwise = Char8.pack "Message Unknown"
 
---This function will output the help of every command in the
---SMTP RFC 821
+--This function will output the help of every command in the SMTP RFC 821
 commandHelp :: T.Command -> Char8.ByteString
 commandHelp _ = Char8.pack "TODO"
