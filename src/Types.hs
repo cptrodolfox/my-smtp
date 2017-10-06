@@ -29,6 +29,7 @@ newtype MailBox = MailBox [Email]
 
 -- ADT to represent and email
 data Email = Email { from :: !Username
+                   , to   :: !Username
                    , body :: !MailBody
                    , time :: !UTCTime }
              deriving (Show, Typeable)

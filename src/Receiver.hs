@@ -45,7 +45,7 @@ addUser user = modify go
 -- the existance of the user in the
 -- database must be checked beforehand.
 addMail :: T.Email -> Update MailDb ()
-addMail email@(T.Email user _ _) = modify go
+addMail email@(T.Email _ user _ _) = modify go
   where
     go (MailDb db) = MailDb $
       Map.update (\(T.MailBox emails)
@@ -86,7 +86,7 @@ main = do
   Char8.putStrLn (Char8.pack "Please write body mail")
   text <- Char8.getLine
   now <- getCurrentTime
-  update state (AddMail $ T.Email (T.Username username) (T.MailBody text) now)
+  update state (AddMail $ T.Email (T.Username username) (T.Username username) (T.MailBody text) now)
   mailBox <- query state (GetMail (T.Username username))
   print mailBox
 
