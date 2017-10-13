@@ -1,0 +1,4 @@
+module Client where
+
+import           Data.ByteString.Char8
+import           Network.Socket.ByteString
